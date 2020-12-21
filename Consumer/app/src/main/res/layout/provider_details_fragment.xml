@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.providerDetails.ProviderDetailsFragment">
+
+    <TextView
+        android:id="@+id/providerAuthorityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/provider_details_label_authority"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/providerTitleLabel"
+        app:layout_constraintTop_toBottomOf="@+id/providerTitleLabel" />
+
+    <TextView
+        android:id="@+id/providerDescriptionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/provider_details_label_description"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/providerAuthorityLabel"
+        app:layout_constraintTop_toBottomOf="@+id/providerAuthorityLabel" />
+
+    <TextView
+        android:id="@+id/providerTitleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/provider_details_label_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/labelBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="providerTitleLabel,providerAuthorityLabel,providerDescriptionLabel"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/providerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/provider_details_value_placeholder"
+        app:layout_constraintBottom_toBottomOf="@+id/providerTitleLabel"
+        app:layout_constraintStart_toEndOf="@+id/labelBarrier"
+        app:layout_constraintTop_toTopOf="@+id/providerTitleLabel" />
+
+    <TextView
+        android:id="@+id/providerAuthority"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/provider_details_value_placeholder"
+        app:layout_constraintBottom_toBottomOf="@+id/providerAuthorityLabel"
+        app:layout_constraintStart_toEndOf="@+id/labelBarrier"
+        app:layout_constraintTop_toTopOf="@+id/providerAuthorityLabel"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/providerDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/provider_details_value_placeholder"
+        app:layout_constraintBottom_toBottomOf="@+id/providerDescriptionLabel"
+        app:layout_constraintStart_toEndOf="@+id/labelBarrier"
+        app:layout_constraintTop_toTopOf="@+id/providerDescriptionLabel"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/dataBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="providerAuthorityLabel,providerDescriptionLabel,providerTitleLabel,providerTitle,providerAuthority,providerDescription"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/providerContentRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/actionsBarrier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataBarrier" />
+
+    <Button
+        android:id="@+id/loadRequestButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/provider_details_load_button"
+        app:layout_constraintBottom_toBottomOf="@+id/openSettingsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/openSettingsButton"
+        app:layout_constraintTop_toTopOf="@+id/openSettingsButton" />
+
+    <Button
+        android:id="@+id/openSettingsButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/provider_details_settings_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/loadRequestButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/actionsBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="openSettingsButton,loadRequestButton"
+        tools:layout_editor_absoluteY="675dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

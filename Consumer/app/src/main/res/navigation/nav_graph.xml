@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/availableProvidersFragment">
+
+    <fragment
+        android:id="@+id/availableProvidersFragment"
+        android:name="com.spundev.appplugin.consumer.ui.availableProviders.AvailableProvidersFragment"
+        android:label="Consumer"
+        tools:layout="@layout/available_providers_fragment">
+        <action
+            android:id="@+id/action_availableProviders_to_providerDetails"
+            app:destination="@id/providerDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/providerDetailsFragment"
+        android:name="com.spundev.appplugin.consumer.ui.providerDetails.ProviderDetailsFragment"
+        android:label="Provider details"
+        tools:layout="@layout/provider_details_fragment">
+        <argument
+            android:name="providerData"
+            app:argType="com.spundev.appplugin.consumer.model.ProviderData" />
+        <action
+            android:id="@+id/action_providerDetails_to_imageDialog"
+            app:destination="@id/imageDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/imageDialogFragment"
+        android:name="com.spundev.appplugin.consumer.ui.imageDialog.ImageDialogFragment"
+        android:label="ImageDialogFragment">
+        <argument
+            android:name="id"
+            app:argType="long" />
+        <argument android:name="imageUri" />
+    </dialog>
+</navigation>

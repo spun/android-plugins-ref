@@ -1,0 +1,6 @@
+rootProject.name = "PluginB"
+include ':app'
+
+// Api module, shared between plugins
+include ':apiModule'
+project(':apiModule').projectDir = new File(settingsDir, '../PluginApi/apiModule')

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.spundev.appplugin.pluginb">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PluginB"
+        tools:ignore="AllowBackup">
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name=".PluginBMediaProvider"
+            android:authorities="${pluginBAuthority}"
+            android:description="@string/source_description"
+            android:exported="true"
+            android:label="@string/source_title"
+            android:permission="com.spundev.appplugin.api.ACCESS_PROVIDER">
+            <intent-filter>
+                <action android:name="com.spundev.appplugin.api.PetProvider" />
+            </intent-filter>
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".SettingsActivity" />
+        </provider>
+    </application>
+
+</manifest>

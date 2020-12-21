@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Consumer</string>
+    <!-- ProviderDetails -->
+    <string name="provider_details_label_authority">Authority:</string>
+    <string name="provider_details_label_description">Description:</string>
+    <string name="provider_details_label_title">Title:</string>
+    <string name="provider_details_value_placeholder">-</string>
+    <string name="provider_details_load_button">Load request</string>
+    <string name="provider_details_settings_button">Settings</string>
+    <!-- ImageDialog -->
+    <string name="image_dialog_content_description">Pet image</string>
+</resources>
